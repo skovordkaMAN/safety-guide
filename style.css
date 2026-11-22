@@ -1,0 +1,114 @@
+p {
+  font-family: sans-serif; /* для шрифта */
+  font-size: 16px;
+  line-height: 1.5;
+}
+.container {
+  padding-left: 60px;         /* для отдаления текста от краев коробки */
+  padding-right: 60px;
+}
+.content h1 {
+  text-align: center; /*для центрирования заголовков*/
+}
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 100vh;
+}
+.wrapper {
+  display: flex;
+  width: 100%;
+  flex: 1;
+}
+.side-bar {
+  width: 250px;           /* ширина боковых полос */
+}
+.left-bar {
+  background-color: #3498db;
+}
+
+.right-bar {
+  background-color: #3498db;
+}
+.content {
+  flex: 1;        
+  padding: 20px;
+  background: #fffbf5; /* для цвета "страницы" */
+}
+img {
+  max-width: 60%; /* для изображений и их размера */
+  height: auto;
+  display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #000000; /* для наличия верхней полосы */
+}
+.menu {
+        display: flex; /* для кнопки помощи */
+        gap: 15px;
+    }
+    .menu__item {
+        color: #000000; /*для кнопки помощи*/
+        text-decoration: none;
+    }
+
+/* Мобильная версия: на узких экранах синие боковые полосы скрыты,
+   а содержимое страницы занимает всю ширину экрана.
+   На компьютере (шире 768 px) стили выше остаются без изменений. */
+@media (max-width: 768px) {
+  body {
+    display: block; /* контент во всю ширину экрана, без центрирования */
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+  }
+
+  .side-bar {
+    display: none; /* убираем синие рамки слева и справа */
+  }
+
+  .wrapper {
+    width: auto;
+  }
+
+  .content {
+    padding: 15px; /* ширина не задаётся: блок сам занимает весь экран */
+  }
+
+  .container {
+    padding-left: 15px; /* вместо 60 px, чтобы текст не был узким */
+    padding-right: 15px;
+  }
+
+  .header {
+    flex-wrap: wrap; /* заголовок и ссылка переносятся при необходимости */
+    gap: 10px;
+  }
+
+  .header > div,
+  .menu {
+    min-width: 0;
+  }
+
+  img {
+    max-width: 100%; /* скриншоты остаются читаемыми на телефоне */
+  }
+}
+
+/* Очень узкие экраны (например, 320 px) */
+@media (max-width: 380px) {
+  .content {
+    padding: 10px;
+  }
+
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
